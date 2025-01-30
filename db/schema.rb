@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_30_101849) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_30_110411) do
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "surname", limit: 40, null: false
     t.string "firstname", limit: 40, null: false
@@ -26,5 +26,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_30_101849) do
   create_table "literary_forms", id: { type: :integer, limit: 1 }, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "form_name"
     t.index ["form_name"], name: "index_literary_forms_on_form_name", unique: true
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
+    t.string "username", limit: 40, null: false
+    t.string "password", null: false
+    t.string "email", limit: 60, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 end
