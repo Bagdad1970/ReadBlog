@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_30_113814) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_30_173552) do
   create_table "authors", id: :integer, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "surname", limit: 40, null: false
     t.string "firstname", limit: 40, null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_30_113814) do
     t.index ["surname", "firstname", "lastname"], name: "index_authors_on_surname_and_firstname_and_lastname", unique: true
   end
 
-  create_table "genres", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
+  create_table "genres", id: { type: :integer, limit: 1 }, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "genre_name", limit: 40, null: false
     t.index ["genre_name"], name: "index_genres_on_genre_name", unique: true
   end
