@@ -1,0 +1,2 @@
+class LiteraryForm < ApplicationRecord
+end
