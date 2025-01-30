@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_30_110411) do
-  create_table "authors", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_01_30_113814) do
+  create_table "authors", id: :integer, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "surname", limit: 40, null: false
     t.string "firstname", limit: 40, null: false
     t.string "lastname", limit: 100
