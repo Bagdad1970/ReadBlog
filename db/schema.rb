@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_30_173552) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_30_185535) do
   create_table "authors", id: :integer, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "surname", limit: 40, null: false
     t.string "firstname", limit: 40, null: false
     t.string "lastname", limit: 100
     t.index ["surname", "firstname", "lastname"], name: "index_authors_on_surname_and_firstname_and_lastname", unique: true
+  end
+
+  create_table "books", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
+    t.text "title"
+    t.integer "author_id", null: false
+    t.integer "genre_id", limit: 1
+    t.integer "literary_form_id", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "fk_rails_53d51ce16a"
+    t.index ["genre_id"], name: "fk_rails_776de3933f"
+    t.index ["literary_form_id"], name: "fk_rails_7945fd0ccc"
   end
 
   create_table "genres", id: { type: :integer, limit: 1 }, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
@@ -37,4 +49,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_30_173552) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
+
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "genres", on_delete: :nullify
+  add_foreign_key "books", "literary_forms", on_delete: :nullify
 end

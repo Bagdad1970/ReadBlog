@@ -1,4 +1,6 @@
 class Genre < ApplicationRecord
+  has_many :books, dependent: :nullify
+
   validates :genre_name, presence: true
   validates :genre_name, uniqueness: { message: "Название жанра должно быть уникальным"}
 

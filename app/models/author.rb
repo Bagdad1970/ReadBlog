@@ -1,4 +1,6 @@
 class Author < ApplicationRecord
+  has_many :books, dependent: :destroy
+
   validates :surname, :firstname, presence: true
  
   validates :surname, :firstname, length: { maximum: 40 }
