@@ -42,7 +42,7 @@ class GenresController < ApplicationController
   end
 
   def genre_params
-    params.expect(genre: [ :genre_name ])
+    params.expect(genre: [ :name ])
   end
 
   private :genre_params, :set_genre
