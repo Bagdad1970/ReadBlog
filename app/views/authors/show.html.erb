@@ -1,0 +1,5 @@
+<h1><%= @author.surname %> <%= @author.firstname %> <%= @author.lastname %></h1>
+
+<%= link_to "Назад", authors_path %>
+<%= link_to "Редактировать", edit_author_path(@author) %>
+<%= button_to "Удалить", @author, method: :delete, data: { turbo_confirm: "Вы уверены?" } %>

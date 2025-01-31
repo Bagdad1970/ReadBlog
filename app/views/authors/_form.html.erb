@@ -1,0 +1,17 @@
+<%= form_with model: author do |form| %>
+  <div>
+    Фамилия: <%= form.text_field :surname %>
+  </div>
+
+  <div>
+    Имя: <%= form.text_field :firstname %>
+  </div>
+
+  <div>
+    Отчество: <%= form.text_field :lastname %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

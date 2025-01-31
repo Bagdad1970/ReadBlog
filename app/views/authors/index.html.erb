@@ -1,0 +1,12 @@
+<h1>Авторы</h1>
+
+<%= link_to "Новый писатель", new_author_path %>
+
+<div id="authors">
+  <% @authors.each do |author| %>
+    <div>
+      Автор:
+      <%= link_to "#{author.surname} #{author.firstname} #{author.lastname}", author %>
+    </div>
+  <% end %>
+</div>
