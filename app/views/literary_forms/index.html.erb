@@ -1,0 +1,11 @@
+<h1>Формы произведения</h1>
+
+<%= link_to "Новая форма", new_literary_form_path %>
+
+<div id="literary_forms">
+  <% @literary_forms.each do |literary_form| %>
+    <div>
+      Название формы: <%= link_to literary_form.name, literary_form %>
+    </div>
+  <% end %>
+</div>

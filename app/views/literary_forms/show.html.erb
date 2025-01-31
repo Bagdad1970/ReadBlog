@@ -1,0 +1,5 @@
+<h1><%= @literary_form.name %></h1>
+
+<%= link_to "Назад", literary_forms_path %>
+<%= link_to "Редактировать", edit_literary_form_path(@literary_form) %>
+<%= button_to "Удалить", @literary_form, method: :delete, data: { turbo_confirm: "Вы уверены?" } %>
