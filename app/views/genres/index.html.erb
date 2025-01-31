@@ -1,0 +1,11 @@
+<h1>Жанры</h1>
+
+<%= link_to "Новый жанр", new_genre_path %>
+
+<div id="genres">
+  <% @genres.each do |genre| %>
+    <div>
+      Название жанра: <%= link_to genre.genre_name, genre %>
+    </div>
+  <% end %>
+</div>

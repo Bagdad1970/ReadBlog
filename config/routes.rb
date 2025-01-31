@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "genres/index"
+  resources :genres
+  resources :literary_forms
+  resources :authors
+  resources :books
+  resources :users
+  resources :user_books
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -1,0 +1,5 @@
+<h1><%= @genre.genre_name %></h1>
+
+<%= link_to "Назад", genres_path %>
+<%= link_to "Редактировать", edit_genre_path(@genre) %>
+<%= button_to "Удалить", @genre, method: :delete, data: { turbo_confirm: "Вы уверены?" } %>
