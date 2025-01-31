@@ -5,7 +5,7 @@
 <div id="genres">
   <% @genres.each do |genre| %>
     <div>
-      Название жанра: <%= link_to genre.genre_name, genre %>
+      Название жанра: <%= link_to genre.name, genre %>
     </div>
   <% end %>
 </div>
