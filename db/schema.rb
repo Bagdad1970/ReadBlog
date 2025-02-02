@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_31_200946) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_02_174508) do
   create_table "authors", id: :integer, charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "surname", limit: 40, null: false
     t.string "firstname", limit: 40, null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_31_200946) do
     t.index ["name"], name: "index_literary_forms_on_name", unique: true
   end
 
+  create_table "sessions", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "user_books", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.integer "mark", limit: 1, null: false
     t.text "review"
@@ -52,18 +61,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_31_200946) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
-    t.string "username", limit: 40, null: false
-    t.string "password", null: false
-    t.string "email", limit: 60, null: false
+    t.string "username", null: false
+    t.string "email_address", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "books", "authors"
   add_foreign_key "books", "genres", on_delete: :nullify
   add_foreign_key "books", "literary_forms", on_delete: :nullify
+  add_foreign_key "sessions", "users"
   add_foreign_key "user_books", "books", on_delete: :cascade
   add_foreign_key "user_books", "users", on_delete: :nullify
 end

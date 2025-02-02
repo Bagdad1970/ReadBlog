@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/bcrypt-ruby/bcrypt-ruby
+  revision: 2d235482b5c994bab09caa3fb4ece3e333c537ed
+  specs:
+    bcrypt (3.1.20)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -348,6 +354,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  bcrypt!
   bootsnap
   brakeman
   capybara
